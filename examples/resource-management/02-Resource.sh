@@ -8,7 +8,7 @@ destinationGroupName=$groupName"Destination"
 
 printf "\n2. Registering Resource Provider Namespace.\n"
 providerNamespace="Providers.Test"
-az resourcemanager resource resourcemanager provider register --ProviderNamespace $providerNamespace --Force
+az resourcemanager resource provider register --ProviderNamespace $providerNamespace --Force
 
 printf "\n3. Creating a new Resource: %s.\n" "$resourceName"
 resourceType="$providerNamespace/statefulResources"
