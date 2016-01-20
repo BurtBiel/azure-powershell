@@ -45,18 +45,18 @@ copy /Y %root%\drop\az\win7-x64\azure.lx %root%\drop\az\osx.10.10-x64
 copy /Y %root%\drop\az\win7-x64\msclu.cfg %root%\drop\az\osx.10.10-x64
 
 REM: copy over the pre-cooked az.sh and ensure correct line endings
-copy /Y %~dp0\az.sh %root%\drop\az\osx.10.10-x64\az
-set azuresh=%root%\drop\az\osx.10.10-x64\az
-echo Get-ChildItem %azuresh% ^| ForEach-Object { >  %temp%\fixLineEndings.ps1
-echo $contents = [IO.File]::ReadAllText($_) -replace "`r`n?", "`n" >> %temp%\fixLineEndings.ps1 
-echo [IO.File]::WriteAllText($_, $contents) >> %temp%\fixLineEndings.ps1 
-echo } >> %temp%\fixLineEndings.ps1
-@powershell -file %temp%\fixLineEndings.ps1
+::copy /Y %~dp0\az.sh %root%\drop\az\osx.10.10-x64\az
+::set azuresh=%root%\drop\az\osx.10.10-x64\az
+::echo Get-ChildItem %azuresh% ^| ForEach-Object { >  %temp%\fixLineEndings.ps1
+::echo $contents = [IO.File]::ReadAllText($_) -replace "`r`n?", "`n" >> %temp%\fixLineEndings.ps1 
+::echo [IO.File]::WriteAllText($_, $contents) >> %temp%\fixLineEndings.ps1 
+::echo } >> %temp%\fixLineEndings.ps1
+::@powershell -file %temp%\fixLineEndings.ps1
 
 xcopy %root%\drop\az\win7-x64\pkgs %root%\drop\az\ubuntu.14.04-x64\pkgs /S /Q /I /Y
 copy /Y %root%\drop\az\win7-x64\azure.lx %root%\drop\az\ubuntu.14.04-x64
 copy /Y %root%\drop\az\win7-x64\msclu.cfg %root%\drop\az\ubuntu.14.04-x64
-copy /Y %azuresh% %root%\drop\az\ubuntu.14.04-x64\az
+::copy /Y %azuresh% %root%\drop\az\ubuntu.14.04-x64\az
 
 REM, windows version also needs it for bash based testing
-copy /Y %~dp0\az.win.sh %root%\drop\az\win7-x64\az
+::copy /Y %~dp0\az.win.sh %root%\drop\az\win7-x64\az

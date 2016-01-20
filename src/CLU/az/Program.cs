@@ -1,5 +1,6 @@
 ﻿using Microsoft.CLU.Common.Properties;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -22,7 +23,23 @@ namespace az
                 System.Console.WriteLine("This is your chance to attach a debugger...");
                 System.Console.ReadLine();
             }
-            return (int) Microsoft.CLU.Run.az.Execute(args);
+
+            if(args != null && args.Count() > 0)
+            {
+                if(args[0].Equals("--install", StringComparison.OrdinalIgnoreCase))
+                {
+                    return (int)Microsoft.CLU.Run.az.Execute(args);
+                }
+            }
+
+            List<string> prettyArgs = new List<string>()
+            {
+                "--run",
+                "azure.lx"
+            };
+            prettyArgs.AddRange(args);
+
+            return (int) Microsoft.CLU.Run.az.Execute(prettyArgs.ToArray());
 
             
         }
