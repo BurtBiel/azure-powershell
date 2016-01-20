@@ -9,19 +9,19 @@ set downloadFolder=%4
 
 if "%1" == "upload" (
     del /Q /F %root%\drop\*.tar.*
-    %~dp0\7-Zip\7z.exe a -ttar -so %root%\drop\ubuntu.14.04-x64.latest.tar %root%\drop\clurun\ubuntu.14.04-x64 | %~dp0\7-Zip\7z.exe a -si %root%\drop\ubuntu.14.04-x64.latest.tar.gz
+    %~dp0\7-Zip\7z.exe a -ttar -so %root%\drop\ubuntu.14.04-x64.latest.tar %root%\drop\az\ubuntu.14.04-x64 | %~dp0\7-Zip\7z.exe a -si %root%\drop\ubuntu.14.04-x64.latest.tar.gz
     if ERRORLEVEL 1 (
         echo failed to create tar.gz file ubuntu.14.04-x64.latest.tar.gz
         exit /B 1  
     )
 
-    %~dp0\7-Zip\7z.exe a -ttar -so %root%\drop\win7-x64.latest.tar %root%\drop\clurun\win7-x64 | %~dp0\7-Zip\7z.exe a -si %root%\drop\win7-x64.latest.tar.gz
+    %~dp0\7-Zip\7z.exe a -ttar -so %root%\drop\win7-x64.latest.tar %root%\drop\az\win7-x64 | %~dp0\7-Zip\7z.exe a -si %root%\drop\win7-x64.latest.tar.gz
     if ERRORLEVEL 1 (
         echo failed to create tar.gz file win7-x64.latest.tar.gz
         exit /B 1  
     )
 
-    %~dp0\7-Zip\7z.exe a -ttar -so %root%\drop\osx.10.10-x64.latest.tar %root%\drop\clurun\osx.10.10-x64 | %~dp0\7-Zip\7z.exe a -si %root%\drop\osx.10.10-x64.latest.tar.gz
+    %~dp0\7-Zip\7z.exe a -ttar -so %root%\drop\osx.10.10-x64.latest.tar %root%\drop\az\osx.10.10-x64 | %~dp0\7-Zip\7z.exe a -si %root%\drop\osx.10.10-x64.latest.tar.gz
     if ERRORLEVEL 1 (
         echo failed to create tar.gz file osx.10.10-x64.latest.tar.gz
         exit /B 1  

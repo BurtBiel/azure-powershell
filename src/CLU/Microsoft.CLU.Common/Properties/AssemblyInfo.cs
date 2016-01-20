@@ -36,7 +36,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 // The friend assemblies of Microsoft.CLU.Common
-[assembly: InternalsVisibleTo("clurun")]
+[assembly: InternalsVisibleTo("az")]
 [assembly: InternalsVisibleTo("Microsoft.CLU")]
 [assembly: InternalsVisibleTo("Microsoft.CLU.Run")]
 [assembly: InternalsVisibleTo("Microsoft.CLU.Tests")]

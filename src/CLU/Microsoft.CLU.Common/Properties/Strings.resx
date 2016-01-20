@@ -402,18 +402,18 @@ Please report this error to the provider of the '{2}' package</value>
   <data name="WarningLineFormat" xml:space="preserve">
     <value>WARNING: {0}</value>
   </data>
-  <data name="CLURun_DisplayHelp_HelpMessage" xml:space="preserve">
+  <data name="az_DisplayHelp_HelpMessage" xml:space="preserve">
     <value>
 
 To install a package use:
-  clurun --install package-name [--version package-version]
+  az --install package-name [--version package-version]
 
 To run a command use:
-  clurun --run configuration-file [arguments]
+  az --run configuration-file [arguments]
 
 </value>
   </data>
-  <data name="CLURunspace_CreatePipeline_RunspaceNotOpended" xml:space="preserve">
+  <data name="azspace_CreatePipeline_RunspaceNotOpended" xml:space="preserve">
     <value>Runspace is not opened</value>
   </data>
   <data name="CmdletHelp_GenerateSingleCommandHelp_TxtCommandSyntax" xml:space="preserve">

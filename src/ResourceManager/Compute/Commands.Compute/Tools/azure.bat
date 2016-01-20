@@ -1,2 +1,2 @@
 ﻿@echo off
-%~dp0\clurun.exe -r %~dp0\azure.lx %*
+%~dp0\az.exe -r %~dp0\azure.lx %*

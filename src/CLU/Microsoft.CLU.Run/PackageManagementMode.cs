@@ -545,7 +545,7 @@ namespace Microsoft.CLU.Run
                 {
                     "#!/bin/bash",
                     "SCRIPTPATH=$(dirname \"$0\")",
-                    $"$SCRIPTPATH/clurun -s {ScriptBaseName} -r $SCRIPTPATH/{Path.GetFileName(cfgPath)} \"$@\""
+                    $"$SCRIPTPATH/az -s {ScriptBaseName} -r $SCRIPTPATH/{Path.GetFileName(cfgPath)} \"$@\""
                 });
                 System.Diagnostics.Process.Start("chmod", $"777 {scriptPath}");
             }
@@ -554,7 +554,7 @@ namespace Microsoft.CLU.Run
                 File.WriteAllLines(scriptPath, new string[]
                 {
                     "@echo off",
-                    $@"%~dp0\clurun.exe -s {ScriptBaseName} -r %~dp0\{Path.GetFileName(cfgPath)} %*"
+                    $@"%~dp0\az.exe -s {ScriptBaseName} -r %~dp0\{Path.GetFileName(cfgPath)} %*"
                 });
             }
         }

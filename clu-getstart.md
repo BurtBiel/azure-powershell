@@ -49,16 +49,16 @@ CLUPackages require some additional files to direct generation of indexing, and 
    
 ## Package Creation and Testing
    Two options
-   1. Run `<repo-root>\tools\CLU\BuildAndInstallClu.bat` which build and generate all cmdlet packages and deploy to under `<repo root>\drop\clurun` folder, with 3 flavors `win7-x64`, `osx.10.10-x64` and `ubuntu.14.04-x64`. When you have a clean environment or just pull from upstream, you should clean temporary bits such as `git clean -xdf`, and run this command.
+   1. Run `<repo-root>\tools\CLU\BuildAndInstallClu.bat` which build and generate all cmdlet packages and deploy to under `<repo root>\drop\az` folder, with 3 flavors `win7-x64`, `osx.10.10-x64` and `ubuntu.14.04-x64`. When you have a clean environment or just pull from upstream, you should clean temporary bits such as `git clean -xdf`, and run this command.
    2. Run `<repo-root>\tools\CLU\BuildCmdlet <package name like Microsoft.Azure.Commands.Profile>` <name like: Microsoft.Azure.Commands.Profile>", this will build and refresh an individual cmdlet package.
 
-After #1 above is finished, you can run `drop\clurun\<platform>\az.bat help` to explore.
+After #1 above is finished, you can run `drop\az\<platform>\az.bat help` to explore.
 
 To debug, set environment variable of `DebugCLU` to "1". Then on running any command, you will be prompted to attach a debugger.
 
-There is also `<repo-root>\tools\CLU\SetupEnv.bat` which is a windows batch wrapping around the `BuildAndInstallClu.bat`, plus set the `DebugCLU` for you, and add the `drop\clurun\win7-x64\az.bat` to the PATH environment variable.
+There is also `<repo-root>\tools\CLU\SetupEnv.bat` which is a windows batch wrapping around the `BuildAndInstallClu.bat`, plus set the `DebugCLU` for you, and add the `drop\az\win7-x64\az.bat` to the PATH environment variable.
 
-To test on osx/linux boxes, do #1, open `<repo-root>\drop\clurun`, copy the flavor folder to your target machine, and run the "az.sh" inside. Make sure set execution permission using `chmod +x az.sh clurun`
+To test on osx/linux boxes, do #1, open `<repo-root>\drop\az`, copy the flavor folder to your target machine, and run the "az.sh" inside. Make sure set execution permission using `chmod +x az.sh az`
 
 (All of those are subject to change, contact yugangw or adxsdkdev for any questions)
 
@@ -142,7 +142,7 @@ Please set the environment variables for either Username/Password (no 2FA) or Se
     - Set the [environment variables](#Environment_Variables_for_Authentication) for either Username/Password (no 2FA) or ServicePrincipal authentication
     - Update PATH to include location of CLU bin drop.
     ```bash
-   export PATH=/<path-to-drop>/clurun/win7-x64/:$PATH
+   export PATH=/<path-to-drop>/az/win7-x64/:$PATH
     ```
     - The infrastructure automatically generates the following environment variables:
 	   - `BASEDIR` - directory path where test script is located
@@ -212,7 +212,7 @@ Install ToolBox from this link - https://docs.docker.com/engine/installation/win
    export spnSubscription=<subscription>
    export azureUser=<username@contosocorp.com>
    export password=<your_password>
-   export PATH=/<path-to-drop>/clurun/win7-x64/:$PATH
+   export PATH=/<path-to-drop>/az/win7-x64/:$PATH
    ```
 - All the parameters to the cmdlets should be passed in as environment variables
 - The current test runners will provide a unique resource group name via `$groupName` but may not remove it at the end if the test fails.

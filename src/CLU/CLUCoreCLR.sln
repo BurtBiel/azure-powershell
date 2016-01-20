@@ -29,7 +29,7 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.Azure.Commands.We
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.Azure.Commands.Resources.Test", "Microsoft.Azure.Commands.Resources.Test\Microsoft.Azure.Commands.Resources.Test.xproj", "{A9CC2879-D45D-4DCB-A405-6EEDB749B15F}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "clurun", "clurun\clurun.xproj", "{2D9ADC64-E70F-4F6B-A74A-0954DA127179}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "az", "az\az.xproj", "{2D9ADC64-E70F-4F6B-A74A-0954DA127179}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.CLU.Common", "Microsoft.CLU.Common\Microsoft.CLU.Common.xproj", "{D96B77D5-C103-423B-BE16-27C3B2F6EC2F}"
 EndProject

@@ -9,12 +9,12 @@ namespace Microsoft.CLU.Run
     /// <summary>
     /// Type responsible for parsing and bootstrapping command execution.
     /// </summary>
-    public class CLURun
+    public class az
     {
         public static void Main(string[] args) { }
 
         /// <summary>
-        /// Microsoft.CLU.Run (clurun.exe) main entry point.
+        /// Microsoft.CLU.Run (az.exe) main entry point.
         /// </summary>
         /// <param name="args">The commandline arguments</param>
         public static Microsoft.CLU.CommandModelErrorCode Execute(string[] args)
@@ -25,8 +25,8 @@ namespace Microsoft.CLU.Run
             {
                 Stopwatch sw = Stopwatch.StartNew();
 
-                CLURun cluRun = new CLURun();
-                var result = cluRun.Parse(args);
+                az az = new az();
+                var result = az.Parse(args);
 
                 sw.Stop();
                 CLUEnvironment.Console.WriteDebugLine($"The command executed in {sw.ElapsedMilliseconds} ms");
@@ -65,7 +65,7 @@ namespace Microsoft.CLU.Run
 
         private void DisplayHelp()
         {
-            CLUEnvironment.Console.Write(Strings.CLURun_DisplayHelp_HelpMessage);
+            CLUEnvironment.Console.Write(Strings.az_DisplayHelp_HelpMessage);
         }
 
         /// <summary>

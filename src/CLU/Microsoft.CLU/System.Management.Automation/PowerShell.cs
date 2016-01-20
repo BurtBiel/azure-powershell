@@ -22,7 +22,7 @@ namespace System.Management.Automation
     ///                   ]
     ///
     /// PowerShell::Invoke(input) : creates a pipeline and runs the commands in PowerShell::PSCommand
-    /// PowerShell::Invoke(input) -> CLURunspace -- CLUPipeline
+    /// PowerShell::Invoke(input) -> azspace -- CLUPipeline
     ///                                                |
     ///                                               input -> pipe0 -> CmdletRunner(Command1 { cmdtext, parameters}) -> pipe1 -> CmdletRunner(Command2 { cmdtext, parameters}) -> pipe2 ->
     /// RETURN(PowerShell::Invoke(input)) : The result of pipeline execution.

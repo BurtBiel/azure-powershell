@@ -12,7 +12,7 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <summary>Execution package for Microsoft CLU packages</summary>
     <description>
-      Cross-Platform command package for clurun
+      Cross-Platform command package for az
 
       Supported Library Platforms:
       - .NET Framework 5.0

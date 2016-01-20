@@ -14,12 +14,12 @@ namespace Microsoft.CLU
         public string RepositoryPath { get; set; }
 
         /// <summary>
-        /// Name of the CLURuntime package, name without version.
+        /// Name of the aztime package, name without version.
         /// </summary>
         public string RuntimePackage { get; set; }
 
         /// <summary>
-        /// Version of the CLURuntime package.
+        /// Version of the aztime package.
         /// </summary>
         public string RuntimeVersion { get; set; }
 

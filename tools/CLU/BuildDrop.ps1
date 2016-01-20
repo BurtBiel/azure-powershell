@@ -1,4 +1,4 @@
-param([string]$dropLocation, [string]$packageVersion="0.0.1", [string] $commandPackagesToBuild = "*", [string] $exceptCommandPackagesToBuild, [switch] $excludeCluRun)
+param([string]$dropLocation, [string]$packageVersion="0.0.1", [string] $commandPackagesToBuild = "*", [string] $exceptCommandPackagesToBuild, [switch] $excludeaz)
 
 $thisScriptDirectory = Split-Path $MyInvocation.MyCommand.Path -Parent
 
@@ -24,9 +24,9 @@ if (!(Test-Path -Path "$dropLocation\CommandRepo" -PathType Container))
     mkdir "$dropLocation\CommandRepo"
 }
 
-if (!(Test-Path -Path "$dropLocation\clurun" -PathType Container))
+if (!(Test-Path -Path "$dropLocation\az" -PathType Container))
 {
-    mkdir "$dropLocation\clurun"
+    mkdir "$dropLocation\az"
 }
 
 $buildPackageScriptPath = "`"$thisScriptDirectory\BuildPackage.ps1`"" # Guard against spaces in the path
@@ -49,25 +49,25 @@ foreach($commandPackage in $commandPackages)
     Invoke-Expression "& $buildPackageScriptPath $commandPackageDir $commandPackageName $buildOutputDirectory $packageVersion $dropLocation\CommandRepo"
 }
 
-if (!($excludeCluRun))
+if (!($excludeaz))
 {
     foreach ($runtime in @("win7-x64", "osx.10.10-x64", "ubuntu.14.04-x64"))
     {
-        $cluRunOutput = "$dropLocation\clurun\$runtime"
-        dotnet publish "$sourcesRoot\clurun" --framework dnxcore50 --runtime $runtime --output $cluRunOutput
+        $azOutput = "$dropLocation\az\$runtime"
+        dotnet publish "$sourcesRoot\az" --framework dnxcore50 --runtime $runtime --output $azOutput
 
         if (!($runtime.StartsWith("win")))
         {
             # use released coreconsole file from https://github.com/dotnet/cli
-            Copy-Item -Path "$workspaceDirectory\tools\CLU\$runtime\coreconsole" -Destination "$cluRunOutput\clurun" -Force
+            Copy-Item -Path "$workspaceDirectory\tools\CLU\$runtime\coreconsole" -Destination "$azOutput\az" -Force
 
             # Remove all extra exes that end up in the output directory...
-            Get-ChildItem -Path "$cluRunOutput" -Filter "*.exe" | Remove-Item
+            Get-ChildItem -Path "$azOutput" -Filter "*.exe" | Remove-Item
         }
         else 
         {
             # Remove all extra exes that end up in the output directory...
-            Get-Childitem -path "$cluRunOutput" -Filter *.exe | Where-Object -Property "Name" -Value "clurun.exe" -NotMatch | Remove-Item
+            Get-Childitem -path "$azOutput" -Filter *.exe | Where-Object -Property "Name" -Value "az.exe" -NotMatch | Remove-Item
         }
     }
 }

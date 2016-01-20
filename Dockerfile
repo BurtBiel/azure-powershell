@@ -25,7 +25,7 @@ RUN bash -c "source $DNX_USER_HOME/dnvm/dnvm.sh \
    
 ENV PATH $PATH:$DNX_USER_HOME/runtimes/default/bin 
 
-ADD drop/clurun/ubuntu.14.04-x64 ubuntu.14.04-x64
+ADD drop/az/ubuntu.14.04-x64 ubuntu.14.04-x64
 ADD src/CLU test/clu
 ADD tools tools
 ADD examples examples

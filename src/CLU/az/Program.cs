@@ -3,7 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Linq;
 
-namespace CLURun
+namespace az
 {
     /// <summary>
     /// Type responsible for parsing and bootstrapping command execution.
@@ -11,7 +11,7 @@ namespace CLURun
     public class Program
     {
         /// <summary>
-        /// Microsoft.CLU.Run (clurun.exe) main entry point.
+        /// Microsoft.CLU.Run (az.exe) main entry point.
         /// </summary>
         /// <param name="args">The commandline arguments</param>
         public static int Main(string[] args)
@@ -22,7 +22,7 @@ namespace CLURun
                 System.Console.WriteLine("This is your chance to attach a debugger...");
                 System.Console.ReadLine();
             }
-            return (int) Microsoft.CLU.Run.CLURun.Execute(args);
+            return (int) Microsoft.CLU.Run.az.Execute(args);
 
             
         }

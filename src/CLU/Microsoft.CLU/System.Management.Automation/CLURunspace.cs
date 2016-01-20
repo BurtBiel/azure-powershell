@@ -6,7 +6,7 @@ namespace System.Management.Automation.Runspaces
     /// <summary>
     /// Represents the runspace that is the operating environment for CLU command pipelines.
     /// </summary>
-    internal class CLURunspace : Runspace
+    internal class azspace : Runspace
     {
         /// <summary>
         /// Backing field for the property InitialSessionState.
@@ -50,10 +50,10 @@ namespace System.Management.Automation.Runspaces
         }
 
         /// <summary>
-        /// Creates an instance of CLURunspace.
+        /// Creates an instance of azspace.
         /// </summary>
         /// <param name="initialSessionState">the initial session-state to use</param>
-        public CLURunspace(InitialSessionState initialSessionState)
+        public azspace(InitialSessionState initialSessionState)
         {
             Debug.Assert(initialSessionState != null);
 
@@ -88,7 +88,7 @@ namespace System.Management.Automation.Runspaces
         {
             if (_runspaceStateInfo.State != RunspaceState.Opened)
             {
-                throw new InvalidOperationException(Strings.CLURunspace_CreatePipeline_RunspaceNotOpended);
+                throw new InvalidOperationException(Strings.azspace_CreatePipeline_RunspaceNotOpended);
             }
 
             return new CLUSyncPipeline(this);

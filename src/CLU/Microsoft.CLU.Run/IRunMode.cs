@@ -1,7 +1,7 @@
 ﻿namespace Microsoft.CLU.Run
 {
     /// <summary>
-    /// Represents a mode in which the CluRun can run.
+    /// Represents a mode in which the az can run.
     /// </summary>
     internal interface IRunMode
     {

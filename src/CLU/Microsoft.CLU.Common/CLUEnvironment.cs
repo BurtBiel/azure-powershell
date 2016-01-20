@@ -62,7 +62,7 @@ namespace Microsoft.CLU
         private static RuntimeConfig _config;
 
         /// <summary>
-        /// Get the root path ($root), root path is where clurun.exe located.
+        /// Get the root path ($root), root path is where az.exe located.
         /// </summary>
         /// <returns></returns>
         public static string GetRootPath()

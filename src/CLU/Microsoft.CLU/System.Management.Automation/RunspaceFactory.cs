@@ -17,7 +17,7 @@
                 throw new ArgumentNullException("initialSessionState");
             }
 
-            return new CLURunspace(initialSessionState);
+            return new azspace(initialSessionState);
         }
     }
 }
