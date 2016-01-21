@@ -7,7 +7,7 @@ namespace Microsoft.CLU.CommandModel
     /// <summary>
     /// Base class for different "Programming Model" implementations.
     /// </summary>
-    internal abstract class CommandModel
+    public abstract class CommandModel
     {
         /// <summary>
         /// The command configuration.

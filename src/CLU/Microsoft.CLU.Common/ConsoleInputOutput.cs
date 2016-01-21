@@ -4,18 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.CLU.Common.Properties;
 
-namespace Microsoft.CLU.Run
+namespace Microsoft.CLU.Common
 {
     /// <summary>
     /// Implementation of IConsoleInputOutput for use in the CLU framework.
     /// </summary>
-    internal class ConsoleInputOutput : IConsoleInputOutput
+    public class ConsoleInputOutput : IConsoleInputOutput
     {
         /// <summary>
         /// Creates an instance of ConsoleInputOutput
         /// </summary>
         /// <param name="args">The commandline arguments</param>
-        internal ConsoleInputOutput(string [] args)
+        public ConsoleInputOutput(string [] args)
         {
             Input = Console.In;
             PipelineOutput = Console.Out;

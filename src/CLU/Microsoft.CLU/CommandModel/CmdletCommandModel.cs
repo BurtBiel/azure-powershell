@@ -12,7 +12,7 @@ namespace Microsoft.CLU.CommandModel
     /// <summary>
     /// Implementation of ICommandModel interface to support "Cmdlet Progamming Model".
     /// </summary>
-    internal class CmdletCommandModel : CommandModel, ICommandModel
+    public class CmdletCommandModel : CommandModel, ICommandModel
     {
         /// <summary>
         /// Runs the Cmdlet programming model given it's configuration.
@@ -21,6 +21,8 @@ namespace Microsoft.CLU.CommandModel
         /// <param name="arguments">The command-line arguments array</param>
         public CommandModelErrorCode Run(ConfigurationDictionary commandConfiguration, string[] arguments)
         {
+            //CLURun2.Execute(arguments);
+
             Debug.Assert(commandConfiguration != null);
             Debug.Assert(arguments != null);
 

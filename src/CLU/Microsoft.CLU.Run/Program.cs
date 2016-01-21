@@ -1,4 +1,5 @@
-﻿using Microsoft.CLU.Common.Properties;
+﻿using Microsoft.CLU.Common;
+using Microsoft.CLU.Common.Properties;
 using System;
 using System.Diagnostics;
 using System.Linq;

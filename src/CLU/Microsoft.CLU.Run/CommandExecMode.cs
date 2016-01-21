@@ -77,7 +77,7 @@ namespace Microsoft.CLU.Run
                     }
                 }
 
-                return CommandModel.Run(commandConfiguration, GetModelArguments(arguments, argsBase));
+                return CLURun2.Execute(commandConfiguration, arguments);CommandModel.Run(commandConfiguration, GetModelArguments(arguments, argsBase));
             }
             catch (TargetInvocationException tie)
             {

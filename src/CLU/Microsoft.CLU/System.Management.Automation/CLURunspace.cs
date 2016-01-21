@@ -6,7 +6,7 @@ namespace System.Management.Automation.Runspaces
     /// <summary>
     /// Represents the runspace that is the operating environment for CLU command pipelines.
     /// </summary>
-    internal class CLURunspace : Runspace
+    public class CLURunspace : Runspace
     {
         /// <summary>
         /// Backing field for the property InitialSessionState.

@@ -11,7 +11,7 @@ namespace System.Management.Automation.Runspaces
     /// <summary>
     /// Represents the functionality of a pipeline that can be used to invoke CLU commands.
     /// </summary>
-    internal class CLUSyncPipeline : Pipeline
+    public class CLUSyncPipeline : Pipeline
     {
         /// <summary>
         /// Backing field for the property HadErrors.
