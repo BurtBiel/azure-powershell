@@ -55,6 +55,7 @@ if (!($excludeCluRun))
     {
         $cluRunOutput = "$dropLocation\clurun\$runtime"
         dotnet publish "$sourcesRoot\clurun" --framework dnxcore50 --runtime $runtime --output $cluRunOutput
+	dotnet publish "$sourcesRoot\az" --framework dnxcore50 --runtime $runtime --output $cluRunOutput
 
         if (!($runtime.StartsWith("win")))
         {
@@ -62,12 +63,12 @@ if (!($excludeCluRun))
             Copy-Item -Path "$workspaceDirectory\tools\CLU\$runtime\coreconsole" -Destination "$cluRunOutput\clurun" -Force
 
             # Remove all extra exes that end up in the output directory...
-            Get-ChildItem -Path "$cluRunOutput" -Filter "*.exe" | Remove-Item
+            #Get-ChildItem -Path "$cluRunOutput" -Filter "*.exe" | Remove-Item
         }
         else 
         {
             # Remove all extra exes that end up in the output directory...
-            Get-Childitem -path "$cluRunOutput" -Filter *.exe | Where-Object -Property "Name" -Value "clurun.exe" -NotMatch | Remove-Item
+            #Get-Childitem -path "$cluRunOutput" -Filter *.exe | Where-Object -Property "Name" -Value "clurun.exe" -NotMatch | Remove-Item
         }
     }
 }
