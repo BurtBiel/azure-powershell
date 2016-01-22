@@ -23,16 +23,23 @@ namespace az
                 System.Console.ReadLine(); 
             }
 
-            var commands = new CommandIndexCollection(Directory.GetCurrentDirectory());
-
-            var exePath = commands.GetBestMatch(new CommandDiscriminator(args));
-            if(exePath == null)
+            if(args == null || args.Length == 0)
             {
-                // TODO: show help
+                Console.WriteLine($"TODO: show general help");
                 return 1;
             }
 
-            var processStart = new ProcessStartInfo(exePath.FullName, string.Join(" ", args));
+            var commands = new CommandIndexCollection(Directory.GetCurrentDirectory(), args);
+            var discriminators = new CommandDiscriminator(args);
+            var exePath = commands.GetBestMatchPath(ref discriminators);
+
+            if (exePath == null)
+            {
+                Console.WriteLine($"TODO: show help for {discriminators}");
+                return 1;
+            }
+
+            var processStart = new ProcessStartInfo(exePath, string.Join(" ", args.Skip(discriminators.Args.Length)));
             var process = Process.Start(processStart);
             process.WaitForExit();
             return process.ExitCode;

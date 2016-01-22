@@ -7,20 +7,28 @@ namespace az
 {
     public class CommandDiscriminator
     {
+        private const char seperatorChar = ' ';
         private string[] args;
 
-        public CommandDiscriminator(string[] args) : this(string.Join(" ", args))
+        public CommandDiscriminator(string[] args) : this(string.Join(seperatorChar.ToString(), args))
         {
             
         }
 
         public CommandDiscriminator(string args)
         {
-            // TODO, get disc part of full args
             Discriminator = args.ToLower();
         }
 
         public string Discriminator { get; private set; }
+
+        public string[] Args
+        {
+            get
+            {
+                return Discriminator.Split(seperatorChar);
+            }
+        }
 
         public override string ToString()
         {

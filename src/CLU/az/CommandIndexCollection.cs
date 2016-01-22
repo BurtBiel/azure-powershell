@@ -2,29 +2,53 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace az
 {
     public class CommandIndexCollection
     {
-        private const string _indexFileExtension = ".idx";
-        private IEnumerable<CommandIndex> _indexes;
+        private string[] args;
+        private string rootPath;
+        Dictionary<string, string> fileNamePaths;
 
-        public CommandIndexCollection(string rootPath)
+        public CommandIndexCollection(string rootPath, string[] args)
         {
-            _indexes = Directory.EnumerateFiles(rootPath, "*.idx", SearchOption.AllDirectories)
-                .Select(f => new CommandIndex(f));
+            this.args = args;
+            this.rootPath = rootPath;
         }
 
-        public FileInfo GetBestMatch(CommandDiscriminator discriminators)
+        public string GetBestMatchPath(ref CommandDiscriminator discriminators)
         {
-            return _indexes
-                .SelectMany(i => i.Entries)
-                .Where(e => e.Key.Equals(discriminators))
-                .Select(e => e.Value)
-                .FirstOrDefault();
+            string simplestMatch = args[0];
+            string extToUse = RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
+                ? ".cmd"
+                : ".sh";
+            fileNamePaths = Directory.EnumerateFiles(rootPath, $"{simplestMatch}*{extToUse}", SearchOption.AllDirectories)
+                .ToDictionary(s => Path.GetFileNameWithoutExtension(s).ToLower());
+
+            return FindMatch(fileNamePaths, ref discriminators);
         }
 
+        private string FindMatch(Dictionary<string, string> fileNamePaths, ref CommandDiscriminator discriminators)
+        {
+            List<string> discriminatorList = new List<string>();
+            discriminatorList.AddRange(args);
+
+            while (discriminatorList.Count > 0)
+            {
+                string fileName = string.Join("-", discriminatorList);
+                if (fileNamePaths.ContainsKey(fileName))
+                {
+                    discriminators = new CommandDiscriminator(discriminatorList.ToArray());
+                    return fileNamePaths[fileName];
+                }
+
+                discriminatorList.RemoveAt(discriminatorList.Count - 1);
+            }
+
+            return null;
+        }
     }
 }

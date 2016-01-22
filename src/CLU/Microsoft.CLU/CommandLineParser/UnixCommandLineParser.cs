@@ -192,7 +192,7 @@ namespace Microsoft.CLU.CommandLineParser
             }
         }
 
-        private void PresentCommandHelp(string[] arguments)
+        public static void PresentCommandHelp(string[] arguments)
         {
             // BUGBUG - NYI!
             if (arguments.Length == 0)
